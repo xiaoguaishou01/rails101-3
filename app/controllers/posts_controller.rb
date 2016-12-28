@@ -35,6 +35,14 @@ class PostsController < ApplicationController
       end
     end
 
+    def destroy
+
+      @group = Group.find(params[:group_id])
+      @post = Post.find(params[:id])
+      @post.destroy
+      redirect_to account_posts_path, alert: 'Update Success'
+    end
+
   private
 
   def post_params
